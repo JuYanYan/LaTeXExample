@@ -1,0 +1,276 @@
+﻿% !Mode::"TeX:UTF-8"
+\documentclass[twocolumn,landscape,UTF8]{ctexart}
+\usepackage{lastpage}
+\usepackage{color}
+\usepackage{ulem}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{setspace}                          % 行间距
+\usepackage{bm}                                % \boldsymbol 粗体
+% 数学
+\usepackage{amsmath,amsfonts,amsmath,amssymb,times}
+\usepackage{txfonts}
+\usepackage{enumerate}                         % 编号
+\usepackage{tikz,pgfplots}                     % 绘图
+\usepackage{tkz-euclide,pgfplots}
+\usetikzlibrary{automata,positioning}
+\usepackage[paperwidth=36.8cm,paperheight=26cm,top=2.5cm,bottom=2cm,right=2cm]{geometry}
+\lstset{language=C,keywordstyle=\color{red},showstringspaces=false,rulesepcolor=\color{green}}
+\oddsidemargin=0.5cm                           % 奇数页页边距
+\evensidemargin=0.5cm                          % 偶数页页边距
+\textwidth=30cm                                % 文本的宽度 单页
+
+\newsavebox{\zdx}                              % 装订线
+
+\newcommand{\putzdx}{\marginpar{
+		\parbox{1cm}{\vspace{-1.6cm}
+			\rotatebox[origin=c]{90}{
+				\usebox{\zdx}
+		}}
+}}
+
+\newcommand{\blank}{\uline{\textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}\ \textcolor{white}{a}}}
+
+\newcommand{\me}{\mathrm{e}}                   % 定义 对数常数e，虚数符号i,j以及微分算子d为直立体。
+\newcommand{\mi}{\mathrm{i}}
+\newcommand{\mj}{\mathrm{j}}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\bs}{\boldsymbol}                  % 数学黑体
+\newcommand{\ds}{\displaystyle}
+%通常我们使用的分数线是系统自己定义的分数线，即分数线的长度的预设值是分子或分母所占的最大宽度，如何让分数线的长度变长成，我们%可以在分子分母添加间隔来实现。如中文分式的命令可以定义为：
+%\newcommand{\chfrac[2]}{\cfrac{\;#1\;}{\;#2\;}}
+%\frac{1}{2} \qquad \chfrac{1}{2}
+
+% 选择题
+\newcommand{\fourch}[4]{\\\begin{tabular}{*{4}{@{}p{3.5cm}}}(A)~#1 & (B)~#2 & (C)~#3 & (D)~#4\end{tabular}} % 四行
+\newcommand{\twoch}[4]{\\\begin{tabular}{*{2}{@{}p{7cm}}}(A)~#1 & (B)~#2\end{tabular}\\\begin{tabular}{*{2}{@{}p{7cm}}}(C)~#3 &
+		(D)~#4\end{tabular}}                      % 两行
+\newcommand{\onech}[4]{\\(A)~#1 \\ (B)~#2 \\ (C)~#3 \\ (D)~#4}  % 一行
+
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\begin{document}
+\fancyhf{}
+\fancyfoot[CO,CE]{\vspace*{1mm}第\,\thepage\,页 , 共 ~\pageref{LastPage} 页}
+\sbox{\zdx}
+{\parbox{27cm}{\centering
+	座位号~\underline{\makebox[34mm][c]{}}~ 班~级\underline{\makebox[34mm][c]{}}~\CJKfamily{song} 学~号\underline{\makebox[44mm][c]{}}~\CJKfamily{song} 姓~名\underline{\makebox[34mm][c]{}} ~\\
+	\vspace{3mm}
+请直接在本试卷上作答。并填写试卷序号、班级、学号和 姓名\\
+%答题时学号
+\vspace{1mm}
+\dotfill{} 密\dotfill{}封\dotfill{}线\dotfill{} \\
+	}}
+	\reversemarginpar
+	
+\begin{spacing}{1.25}
+	 \begin{center}
+        \begin{LARGE}
+            期中考试试卷    \\
+            
+        \end{LARGE}
+        (闭卷笔试\ \ 60 分钟)                                                \\
+        \vspace{0.5cm}
+        \begin{tabular}{|m{0.03\textwidth}|*{8}{m{0.035\textwidth}|}p{0.04\textwidth}|}
+	      \hline
+           \centering  题~号 & \centering 一 & \centering 二 & \centering 三 & \centering 四& \centering 五
+         & \centering 总~分 & \makecell{阅卷人} \rule{0pt}{3mm}              \\
+	      \hline
+           \centering 分~数 &  &  &  &  &  &  &
+           \rule{0pt}{8mm}                                                   \\
+	      \hline
+        \end{tabular}
+    \end{center}
+\end{spacing}
+\vspace{-0.5cm}
+\setlength{\marginparsep}{1.7cm}
+\putzdx                                           % 装订线--奇页数
+\vspace{1cm}
+\begin{spacing}{1.3}
+    \section*{\hspace{5cm} 一、不定项选择题~(每题~4 分)}
+    \vspace{-2cm}
+    \begin{tabular}{|p{0.05\textwidth}|p{0.05\textwidth}|}
+			\hline
+			% after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+			\centering 阅卷人& \\
+			\hline
+			\centering 得~~分 &  \\
+			\hline
+		\end{tabular}
+\begin{enumerate}
+\setcounter{enumi}{0}
+    % 
+    \item 下列理解\textbf{错误}的是 \ \ (\qquad)
+    \onech{编译过程是一种翻译过程}{C语言程序不需要编译器或解释器即可被计算机执行}{C语言程序可以直接被CPU执行}{链接过程晚于编译过程}
+    % 
+    \item 对于语法错误、语义错误，理解\textbf{正确}的是 \ \ (\qquad)
+    \twoch{语法错误可以被链接器发现}{语义错误是上下文无关的}{语法错误是由编译器发现的}{语义错误不是上下文无关的}
+    % 
+    \item 对于基本数据类型int，关于在\textbf{任何机器上}的情况，理解\textbf{错误}的是 \ \ (\qquad)
+    \twoch{int一定是8位有符号整数类型}{int一定是16位有符号整数类型}{int一定是32位有符号整数类型}{int一定是64位有符号整数类型}
+    % 
+    \item 对于printf函数的格式化字符串（即\% d等），理解\textbf{正确}的是 \ \ (\qquad)
+    \twoch{\%d对应着int类型的数据}{\%f对应着float类型的数据}{\%f对应着long类型的数据}{\%c对应着char类型的数据}
+    %
+    \item 对于一个C语言程序，理解\textbf{正确}的是 \ \ (\qquad)
+    \onech{默认情况下程序将从main函数开始执行}{默认情况下程序将从mian函数开始执行}{主函数的返回值为int类型}{主函数的返回值为float类型}
+    %
+    \item 对于数据类型的理解，\textbf{正确}的是 \ \ (\qquad)
+    \twoch{int在其可表示范围内是精确的}{char在其可表示范围内是精确的}{float可以表示整数}{double可以精确表示0.0这个数}
+    %
+    \item 用scanf输入当前作用域下可访问的int类型变量a, b，下列写法\textbf{可用}的是 \ \ (\qquad)
+    \twoch{scanf(``\%d\%d, \&a, \&b'');}{scanf(``\%d\%d'', \&a, \&b);}
+          {scanf(``\%d,\%d'', a, b);}{scanf(``\%d,\%d'', \&a, \&b);}
+    %
+    \item 已知char类型（可看作\textbf{有符号8位整数}类型）的变量a，内存中的二进制值为11111111，那么printf(``\%d'', (int)a)将得到 \ \ (\qquad)
+    \fourch{-1}{?}{0}{(null)}
+    %
+    \item 下列\textbf{正确}的字面常量写法是 \ \ (\qquad)
+    \fourch{012}{0ff}{0.32f}{``string string''}
+\end{enumerate}
+\section*{\hspace{4.5cm} 二、判断题:~正确~$\surd$, 错误~$\times$ (每题~3 分)}
+\vspace{-1.5cm}
+\begin{tabular}{|p{0.05\textwidth}|p{0.05\textwidth}|}
+  \hline
+    \centering 阅卷人&       \\
+  \hline
+    \centering 得~~分 &      \\
+  \hline
+\end{tabular}
+\begin{enumerate}
+\setcounter{enumi}{9}
+    %
+    \item 0xff是合法的十六进制值                                 \hfill(\qquad)
+    %
+    \item $-\frac{w}{2}$在C语言中可写为-w / 2.0;                \hfill(\qquad)
+    %
+    \item 表达式3 + 2 / 5的结果为3                              \hfill(\qquad)
+    %
+    \item 表达式1 + 2 > 3 == 4的结果为假                         \hfill(\qquad)
+    % 
+    \item	 $\text{unsigned int a} = -1;$则a的值至少为$2^{16}-1$  \hfill(\qquad)
+\end{enumerate}
+\section*{\hspace{4.5cm} 三、兰伯特余弦定律~(每空~3 分，共~15 分)}
+\vspace{-1.5cm}
+\begin{tabular}{|p{0.05\textwidth}|p{0.05\textwidth}|}
+  \hline
+    \centering 阅卷人 &         \\
+  \hline
+    \centering 得~~分 &         \\
+  \hline
+\end{tabular}
+\begin{enumerate}\setcounter{enumi}{14}
+    \item 下面程序用于模拟兰伯特余弦定律，即表面辐照度与光方向和表面法线夹角的余弦值成正比。输入该程序的包括光线方向向量$\vec{i}=\left(x,y,z\right)$、辐射通量$\boldsymbol{\Phi}$和面积$A$。法线$\vec n$题目中已给出。你需要按照公式$\boldsymbol{E}=\frac{\boldsymbol{\Phi}}{A}\cos{\theta}$计算出表面辐照度$\boldsymbol{E}$，并输出$\boldsymbol{E}$的值。为了方便起见，可以确定向量$\vec n$模长一定是1，同时我对$\vec i$做了归一化，这样它的模长也是1，如此就可用$\cos{\theta}=\vec{i}\cdot\vec{n}$计算夹角的余弦值，并且，你可以假定输入是合法的。
+\begin{lstlisting}
+输入样例1: 1 2 3 4 5
+输出样例1: E = 0.8
+输入样例2: 1 0 0 1 1
+输出样例2: E = 0.267261
+输入样例3: 2 4 6 1 1
+输出样例3: E = 1
+\end{lstlisting}
+    例如对于样例1，它意味着$\vec{i}=\left(1,2,3\right)$，辐射通量$\boldsymbol{\Phi}=4$，面积$A=5$。请注意这个样例，输出的不是``E = 0.800000''，而是``E = 0.8''。程序我已经写了一部分，你只需要把程序补全即可。不过你完全可以写一个新的在边上，当然，要能通过样例数据。
+\begin{lstlisting}
+#include <math.h>
+#include <stdio.h>
+// 表面法线n=(1, 2, 3)的归一化结果, 模长为1
+const float nX = 0.2672612419124244f;
+const float nY = 0.5345224838248488f;
+const float nZ = 0.8017837257372732f;
+int main(void)
+{
+    float phi, A, cosTheta, x, y, z, leng, E;
+    printf("format: x y z \\phi A\n");// 输入向量i是(x, y, z)
+    //
+    scanf(______________, &x, &y, &z, &phi, &A);
+    leng = sqrt(x*x + y*y + z*z);     // 计算输入向量模长
+    x /= leng;                        // 归一化输入向量
+    y /= leng;
+    z /= leng;
+    cosTheta = ____________________;  // 用点乘计算余弦值
+    E = (________) * ________;        // 用公式计算E
+    printf(______________, E);
+    return 0;
+}
+\end{lstlisting}
+\end{enumerate}
+\section*{\hspace{4.5cm} 四、张三买笔~(本题~20 分)}
+\vspace{-1.5cm}
+\begin{tabular}{|p{0.05\textwidth}|p{0.05\textwidth}|}
+  \hline
+    \centering 阅卷人 &         \\
+  \hline
+    \centering 得~~分 &         \\
+  \hline
+\end{tabular}
+\begin{enumerate}\setcounter{enumi}{15}
+    \item 张三走上了帮人跑腿的路。现在他遇到了一个小学生，小学生给了他a元b角，让他去校门外的奸商处购买签字笔。一只签字笔是2元3角，现在张三想知道自己能买多少签字笔回来。                                            \\
+    张三当然有跑腿费，费用是1元1角。小学生给的钱自然也大于跑腿费。           \\
+    输入格式：                                                        \\
+    输入只有一行，两个整数，分别表示a和b。并且，它们不会超过你这个月的生活费  \\
+    输出格式：                                                        \\
+    输出只有一行，表示张三能买多少笔。按照我们的约定，这个结果大于等于0       \\
+    样例输入：                                                        \\
+    3 4                                                              \\
+    样例输出：                                                        \\
+    1                                                                \\
+    因为万事开头难，所以我帮你把最开始的部分做了。
+\begin{lstlisting}
+#include <stdio.h>
+int main(void)
+{
+    int a, b;
+
+
+    scanf(                       );
+
+
+
+
+
+
+    return 0;
+}
+\end{lstlisting}
+\end{enumerate}
+\section*{\hspace{4.5cm} 五、旦总的夜宵~(本题~14 分)}
+\vspace{-1.5cm}
+\begin{tabular}{|p{0.05\textwidth}|p{0.05\textwidth}|}
+  \hline
+    \centering 阅卷人 &         \\
+  \hline
+    \centering 得~~分 &         \\
+  \hline
+\end{tabular}
+\begin{enumerate}\setcounter{enumi}{16}
+    \item 旦总单纯地饿了，想点外卖吃披萨。为了让披萨看起来多一点，他想知道对着比萨切n刀，最多能切出多少块披萨？ \\
+    很显然，切太多了没法吃（因为切太碎了），因此输入数据就是个位数。\\
+    输入只有一行，表示n。输出只有一行，表示能切出多少披萨。       \\
+    输入样例：                                              \\
+    3                                                      \\
+    输出样例：                                              \\
+    7                                                      \\
+    我帮你把最开始的部分做了，考虑到大家的最终成绩，因此本题分值不高，祝你好运。
+\begin{lstlisting}
+#include <stdio.h>
+int main(void)
+{
+
+
+
+
+    return 0;
+}
+\end{lstlisting}
+\end{enumerate}
+
+\end{spacing}
+
+\clearpage
+	
+\end{document}
