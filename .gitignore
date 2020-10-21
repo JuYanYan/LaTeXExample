@@ -11,3 +11,5 @@ answer/
 !*.pdf
 !*.gitignore
 !*.gitattributes
+!*.md
+
